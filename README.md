@@ -16,7 +16,7 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## Dark Theme 
-<img src="https://user-images.githubusercontent.com/32409575/123853692-62ded280-d93b-11eb-8322-76fef894a63b.png" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/32409575/123853692-62ded280-d93b-11eb-8322-76fef894a63b.png" width="300" height="500" />
 <img src="https://user-images.githubusercontent.com/32409575/123853762-75590c00-d93b-11eb-813e-4eb0a4fc853f.png" width="200" height="400" />
 
 

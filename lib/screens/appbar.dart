@@ -15,7 +15,7 @@ class AppBarCustom extends StatelessWidget {
               child: Text(
                 "Samachar",
                 style: TextStyle(
-                  color: Colors.blue
+                  // color: Colors.blue
                 ),
               ),
             ),

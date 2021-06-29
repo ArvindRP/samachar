@@ -44,6 +44,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      primary: true,
       appBar: AppBar(
           toolbarHeight: kToolbarHeight-7,
           shape: RoundedRectangleBorder(
@@ -54,7 +55,7 @@ class _HomeState extends State<Home> {
             child: Text(
               "Samachar",
               style: TextStyle(
-                color: Colors.blue
+                // color: Colors.blue
               ),
             ),
           ),

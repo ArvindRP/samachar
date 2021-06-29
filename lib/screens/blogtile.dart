@@ -28,7 +28,7 @@ class BlogTile extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(title, style: TextStyle(
                   fontSize: 15,
-                  color: Colors.black
+                  // color: Colors.black
                 ),),
               ),
               SizedBox(height: 6,),

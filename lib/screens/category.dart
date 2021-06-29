@@ -53,7 +53,7 @@ class _CategoryNewsState extends State<CategoryNews> {
           child: Text(
             widget.category,
             style: TextStyle(
-              color: Colors.blue
+              // color: Colors.blue
             ),
           ),
         ),
@@ -63,7 +63,7 @@ class _CategoryNewsState extends State<CategoryNews> {
       
       SingleChildScrollView(
         child: Container(
-          color: Colors.white,
+          // color: Colors.white,
                   padding: EdgeInsets.symmetric(horizontal: 6),
                   child: ListView.builder(
                     shrinkWrap: true,

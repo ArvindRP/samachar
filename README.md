@@ -1,6 +1,6 @@
 # samachar
 
-A new Flutter project.
+A NewsApp Flutter project.
 
 ## Getting Started
 

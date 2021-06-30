@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:samachar/Modals/articlemodals.dart';
+import 'package:samachar/utils/AppStateNotifier.dart';
 import 'package:samachar/utils/news.dart';
 
 import 'blogtile.dart';
@@ -50,13 +52,13 @@ class _CategoryNewsState extends State<CategoryNews> {
     ),
         title: Padding(
           padding: EdgeInsets.only(right: 20),
-          child: Text(
+          child: Consumer<AppStateNotifier>(builder: (context,theme,child)=>Text(
             widget.category,
             style: TextStyle(
-              // color: Colors.blue
+              color: theme.isDarkModeOn ? Colors.greenAccent  : Colors.blue
             ),
           ),
-        ),
+        ),)
       ),
 
       body: _loading ? Center(child: CircularProgressIndicator(color: Colors.blueGrey,),) :  

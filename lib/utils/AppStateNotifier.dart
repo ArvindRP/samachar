@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:samachar/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppStateNotifier extends ChangeNotifier{
 
-  bool isDarkModeOn = false;
+  bool _isDarkModeOn = true;
 
-  void updateTheme(bool isDarkModeOn){
-    this.isDarkModeOn = isDarkModeOn;
+  void updateTheme() async {
+    _isDarkModeOn =!_isDarkModeOn;
     notifyListeners(); 
   }
 
+  bool get isDarkModeOn => _isDarkModeOn;
 }

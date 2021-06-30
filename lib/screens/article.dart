@@ -1,8 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:samachar/utils/AppStateNotifier.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+// ignore: must_be_immutable
 class ArticleView extends StatefulWidget {
 
   String blogUrl;
@@ -24,12 +27,17 @@ class _ArticleViewState extends State<ArticleView> {
     ),
         title:  Padding(
           padding: const EdgeInsets.symmetric(horizontal: 85),
-          child: Text(
-              "Samachar",
-              style: TextStyle(
-                color: Colors.blue
+          child: Consumer<AppStateNotifier>(builder: (context,theme,child)=>
+            InkWell(
+              onTap: ()=>theme.updateTheme(),
+              child: Text(
+                "Samachar",
+                style: TextStyle(
+                   color: theme.isDarkModeOn ? Colors.greenAccent  : Colors.blue
+                ),
               ),
-          ),
+            ),
+            ) ,
         ),
       ),
       body: Container(

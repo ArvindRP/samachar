@@ -1,5 +1,8 @@
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:samachar/utils/AppStateNotifier.dart';
 
 import 'article.dart';
 
@@ -15,20 +18,20 @@ class BlogTile extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context)=> ArticleView(blogUrl: url,)));
       },
-      child: Card(
+      child: Consumer<AppStateNotifier>(builder: (context,theme,child)=>Card(
         child: Container(
           margin: EdgeInsets.only(bottom: 15),
           child: Column(
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.network(imgageURL)),
+                child: CachedNetworkImage(imageUrl: imgageURL)),
               SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(title, style: TextStyle(
                   fontSize: 15,
-                  // color: Colors.black
+                  color: theme.isDarkModeOn ? Colors.white  : Colors.black
                 ),),
               ),
               SizedBox(height: 6,),
@@ -36,7 +39,7 @@ class BlogTile extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(desc, style: TextStyle(
                   fontSize: 12,
-                  color: Colors.blue,
+                  // color: theme.isDarkModeOn ? Colors.greenAccent  : Colors.blue
                 ),),
               )
             ],
@@ -44,6 +47,7 @@ class BlogTile extends StatelessWidget {
           
         ),
       ),
+      )
     );
   }
 }

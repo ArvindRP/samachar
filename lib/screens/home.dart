@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 import 'package:samachar/Modals/articlemodals.dart';
 import 'package:samachar/Modals/categorymodal.dart';
+import 'package:samachar/utils/AppStateNotifier.dart';
 import 'package:samachar/utils/data.dart';
 import 'package:samachar/utils/news.dart';
 import 'blogtile.dart';
 import 'categorycard.dart';
+
 
 class Home extends StatefulWidget {
   const Home({ Key? key }) : super(key: key);
@@ -52,12 +55,17 @@ class _HomeState extends State<Home> {
       
     ),
           title: Center(
-            child: Text(
-              "Samachar",
-              style: TextStyle(
-                // color: Colors.blue
+            child: Consumer<AppStateNotifier>(builder: (context,theme,child)=>
+            InkWell(
+              onTap: ()=>theme.updateTheme(),
+              child: Text(
+                "Samachar",
+                style: TextStyle(
+                   color: theme.isDarkModeOn ? Colors.greenAccent  : Colors.blue
+                ),
               ),
             ),
+            )  
           ),
         ),
 

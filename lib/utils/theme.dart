@@ -13,23 +13,24 @@ class AppTheme{
     cardTheme: CardTheme(color: Colors.white),
     scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(
-      bodyText2: TextStyle(color: Colors.green))
+      bodyText2: TextStyle(color: Colors.blueAccent))
 
     
 
   );
 
   static final ThemeData darkTheme = ThemeData(
-    appBarTheme: AppBarTheme(color: Colors.black26,
+    appBarTheme: AppBarTheme(color: Colors.black12,
      iconTheme: IconThemeData(color: Colors.white),
      systemOverlayStyle:SystemUiOverlayStyle(statusBarColor: Colors.white),),
+     brightness: Brightness.dark,// Must Use for showing Status bar else it will be black 
     primaryTextTheme: TextTheme(
       headline6: TextStyle(color: Colors.blue),
     ),
-    cardTheme: CardTheme(color: Colors.black54),
-    scaffoldBackgroundColor: Colors.black26,
+    cardTheme: CardTheme(color: Colors.black26),
+    scaffoldBackgroundColor: Colors.black,
     textTheme: TextTheme(
-      bodyText2: TextStyle(color: Colors.green))
+      bodyText2: TextStyle(color: Colors.greenAccent))
 
 
   );

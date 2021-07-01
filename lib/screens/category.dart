@@ -33,7 +33,7 @@ class _CategoryNewsState extends State<CategoryNews> {
 
     CategoryNewsClass newsClass = CategoryNewsClass();
     
-    await newsClass.getNews(widget.category.toLowerCase());
+    await newsClass.getNews(country,widget.category.toLowerCase());
     articles = newsClass.news;
     setState(() {
       _loading = false;
@@ -61,7 +61,7 @@ class _CategoryNewsState extends State<CategoryNews> {
         ),)
       ),
 
-      body: _loading ? Center(child: CircularProgressIndicator(color: Colors.blueGrey,),) :  
+      body: _loading ? Center(child: Consumer<AppStateNotifier>(builder: (context,theme,child)=>CircularProgressIndicator(color: theme.isDarkModeOn? Colors.greenAccent : Colors.blue,),)) :  
       
       SingleChildScrollView(
         child: Container(

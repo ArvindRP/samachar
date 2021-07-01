@@ -9,6 +9,7 @@ import 'package:samachar/utils/news.dart';
 import 'blogtile.dart';
 import 'categorycard.dart';
 
+String country = 'in';
 
 class Home extends StatefulWidget {
   const Home({ Key? key }) : super(key: key);
@@ -33,6 +34,15 @@ class _HomeState extends State<Home> {
 
   }
 
+  void updatState(){
+    categories = getCategories();
+    setState(() {
+      _loading = true;
+    });
+    getNews();
+    
+  }
+
   getNews() async{
 
     News newsClass = News();
@@ -54,7 +64,8 @@ class _HomeState extends State<Home> {
       borderRadius: BorderRadius.circular(20),
       
     ),
-          title: Center(
+          title: Padding(
+            padding: EdgeInsets.only(left: 140),
             child: Consumer<AppStateNotifier>(builder: (context,theme,child)=>
             InkWell(
               onTap: ()=>theme.updateTheme(),
@@ -67,11 +78,49 @@ class _HomeState extends State<Home> {
             ),
             )  
           ),
+          actions: [
+            PopupMenuButton<String>(
+              onSelected: (value)=>{
+                country = value ,
+                
+                updatState(),
+                
+
+              },
+            itemBuilder: (context) {
+              return [
+                
+                PopupMenuItem<String>(
+                  child: const Text(
+                    "India"
+                  ),
+                  value: 'in',
+                  
+                ),
+                PopupMenuItem(
+                  child: Text(
+                    "USA",
+                  ),
+                  value: 'us'
+                ),
+                PopupMenuItem(
+                  child: Text(
+                    "Japan",
+                  ),
+                  value: 'jp'
+                ),
+              ];
+            },
+          )
+
+          ],
         ),
 
       body: _loading? Center(
         child: Container(
-          child: CircularProgressIndicator()),
+          child: Consumer<AppStateNotifier>(builder: (context,theme,child)=>CircularProgressIndicator(
+            color: theme.isDarkModeOn ? Colors.greenAccent  : Colors.blue,
+          ))),
       ) : SingleChildScrollView(    
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 10,vertical: 7),
